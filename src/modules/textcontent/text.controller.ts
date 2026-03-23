@@ -1,6 +1,6 @@
 
 import { Request,Response,NextFunction } from "express";
-import { ApiResponse } from "utils/ApiResponce";
+import { ApiResponse } from "../../utils/ApiResponce";
 import { ConflictError } from "utils/error";
 import textService from "./text.service";
 import { createTextContentSchema } from "./text.schema";

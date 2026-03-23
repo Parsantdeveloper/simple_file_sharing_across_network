@@ -1,5 +1,5 @@
 
-import { ApiResponse } from "utils/ApiResponce";
+import { ApiResponse } from "../../utils/ApiResponce";
 import { Request,Response,NextFunction } from "express";
 import roomService from "./room.service"
 

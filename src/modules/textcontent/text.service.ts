@@ -1,8 +1,8 @@
-import { ApiResponse } from "utils/ApiResponce";
-import { ConflictError } from "utils/error";
+import { ApiResponse } from "../../utils/ApiResponce";
+import { ConflictError } from "../../utils/error";
 import textRepository from "./text.repository";
 import { createTextContentType } from "./text.schema";
-import { encrypt,decrypt } from "libs/encryption";
+import { encrypt,decrypt } from "../../libs/encryption";
 
 class textService{
 

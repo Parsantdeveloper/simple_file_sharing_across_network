@@ -1,5 +1,5 @@
 import roomRepository from "./room.repository";
-import { decrypt } from "libs/encryption";
+import { decrypt } from "../../libs/encryption";
 
 class RoomService {
   async onBoarding(ipAddress: string) {
