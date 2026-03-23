@@ -1,0 +1,65 @@
+# 🔐 Environment variables (CRITICAL)
+.env
+.env.*
+!.env.example
+
+# 🧠 Node modules
+node_modules/
+
+# 🧾 Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 🗂 Build output
+dist/
+build/
+.next/
+out/
+
+# 🧪 Coverage
+coverage/
+
+# 🧠 Prisma generated files (optional depending on setup)
+generated/
+prisma/generated/
+
+# 🗄 Database files (if any local)
+*.sqlite
+*.db
+
+# 🖥 OS files
+.DS_Store
+Thumbs.db
+
+# 🧠 IDE / Editor
+.vscode/
+.idea/
+
+# 🔑 Keys & certificates (VERY IMPORTANT)
+*.pem
+*.key
+*.crt
+
+# 🧪 Temp files
+tmp/
+temp/
+
+# 🧠 Cache
+.cache/
+*.tsbuildinfo
+
+# 🐳 Docker (if used)
+docker-compose.override.yml
+
+# 🚀 Deployment specific
+.vercel
+.netlify
+
+# 📦 Package manager locks (depends on your strategy)
+# keep ONE of these, not all
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

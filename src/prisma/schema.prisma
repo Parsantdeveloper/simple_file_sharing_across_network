@@ -1,0 +1,39 @@
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+datasource db {
+  provider = "postgresql"
+}
+
+model Room {
+  id             String        @id @default(uuid())
+  passwordHash   String?       // optional password protection
+  encryptionKey  String?       // optional encryption key
+  createdAt      DateTime      @default(now())
+  expiresAt      DateTime?
+  textContent    TextContent?
+  roomIPs        RoomIP[]
+
+  @@map("rooms")
+}
+
+model RoomIP {
+  id        Int   @unique   @id @default(autoincrement())
+  room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  roomId    String
+  ipAddress String @unique
+  createdAt DateTime @default(now())
+
+  @@map("room_ips")
+}
+
+model TextContent {
+  room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  roomId    String   @id
+  content   Json
+  updatedAt DateTime @updatedAt
+
+  @@map("text_contents")
+}
