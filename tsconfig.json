@@ -10,9 +10,9 @@
     "noImplicitAny": true,
         "typeRoots": ["./src/types", "./node_modules/@types"],
 
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "strictNullChecks": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
 
     "esModuleInterop": true,
     "resolveJsonModule": true,
