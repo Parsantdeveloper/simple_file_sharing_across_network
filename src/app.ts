@@ -15,7 +15,7 @@ export const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:4000", // Replace with your frontend's origin
+    origin: process.env.FRONTEND_BASE_URL, // Replace with your frontend's origin
     methods: ["GET", "POST", "PUT", "DELETE","PATCH"], // Specify allowed HTTP methods
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   })
