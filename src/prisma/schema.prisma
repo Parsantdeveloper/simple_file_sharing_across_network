@@ -15,7 +15,7 @@ model Room {
   expiresAt      DateTime?
   textContent    TextContent?
   roomIPs        RoomIP[]
-
+  fileContent    FileContent[]
   @@map("rooms")
 }
 
@@ -36,4 +36,14 @@ model TextContent {
   updatedAt DateTime @updatedAt
 
   @@map("text_contents")
+}
+
+
+model FileContent{
+  room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  roomId    String   @id
+  content   Json
+  updatedAt DateTime @updatedAt
+  @@index([roomId])
+  @@map("file_contents")
 }
