@@ -39,11 +39,15 @@ model TextContent {
 }
 
 
-model FileContent{
+model FileContent {
+  id        String   @id @default(uuid())
   room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
-  roomId    String   @id
-  content   Json
-  updatedAt DateTime @updatedAt
+  roomId    String
+  fileUrl   String
+  fileType  String
+  fileName  String
+  publicId  String   // Cloudinary public ID for deletion
+  createdAt DateTime @default(now())
   @@index([roomId])
   @@map("file_contents")
 }

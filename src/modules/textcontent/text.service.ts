@@ -1,5 +1,4 @@
-import { ApiResponse } from "../../utils/ApiResponce";
-import { ConflictError } from "../../utils/error";
+import { AppError } from "@/utils/AppError";
 import textRepository from "./text.repository";
 import { createTextContentType } from "./text.schema";
 import { encrypt,decrypt } from "../../libs/encryption";
@@ -14,7 +13,7 @@ class textService{
                 content:encryptedContent})
             return updatedContent;
          } catch (error) {
-            throw new ConflictError("Failed to upsert text content");
+            throw  AppError.conflict("Failed to upsert text content");
          }
     }
 

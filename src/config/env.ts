@@ -5,6 +5,7 @@ const envSchema = z.object({
 NODE_ENV: z.enum(["development", "production", "test"]),
 PORT: z.string(),
 DATABASE_URL: z.string().url(),
+UPSTASH_REDIS_URL: z.string().url(),
 });
 
 

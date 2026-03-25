@@ -8,7 +8,7 @@ import textRoute from "./modules/textcontent/text.route";
 import dotenv from "dotenv"
 import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger";
-// import { deleteTempImage } from "./modules/uploads/uploads.controller";
+import fileRoute from "./modules/files/files.route";
 
 dotenv.config();
 export const app = express();
@@ -29,5 +29,6 @@ app.use(express.json());
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/api/room", roomRoute);
 app.use("/api/text-content", textRoute);
+app.use("/api/file", fileRoute);
 
 app.use(errorHandler);
