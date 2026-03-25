@@ -2,8 +2,8 @@
 import { Request, Response } from "express";
 import { fileContentSchema, deleteFileParamsSchema,getFilesByRoomIdParamsSchema } from "./files.schema";
 import filesService from "./files.service";
-import { asyncHandler } from "@/utils/AsyncHandler";
-import { AppError } from "@/utils/AppError";
+import { asyncHandler } from "../../utils/AsyncHandler";
+import { AppError } from "../../utils/AppError";
 
 export const uploadFile = asyncHandler(async (req: Request, res: Response) => {
     if (!req.file) throw AppError.badRequest("No file uploaded");

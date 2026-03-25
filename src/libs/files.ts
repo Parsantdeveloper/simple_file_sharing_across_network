@@ -2,7 +2,7 @@
 import multer from "multer";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
 import cloudinary from "../config/cloudinary";
-import { AppError } from "@/utils/AppError";
+import { AppError } from "../utils/AppError";
 
 // Configure Cloudinary storage for any file type
 const storage = new CloudinaryStorage({

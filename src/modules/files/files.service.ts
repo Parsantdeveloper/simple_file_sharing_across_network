@@ -1,9 +1,9 @@
 // files.service.ts
 import filesRepository from "./files.repository";
 import { FileContentType } from "./files.schema";
-import { destroy } from "@/libs/files";
-import redis from "@/libs/redis";
-import { AppError } from "@/utils/AppError";
+import { destroy } from "../../libs/files";
+import redis from "../../libs/redis";
+import { AppError } from "../../utils/AppError";
 
 class FilesService {
     private readonly MAX_FILES = 3;

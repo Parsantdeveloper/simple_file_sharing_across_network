@@ -1,4 +1,4 @@
-import { AppError } from "@/utils/AppError";
+import { AppError } from "../../utils/AppError";
 import textRepository from "./text.repository";
 import { createTextContentType } from "./text.schema";
 import { encrypt,decrypt } from "../../libs/encryption";

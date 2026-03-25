@@ -1,7 +1,7 @@
 // middlewares/error.middleware.ts
 import { Request, Response, NextFunction } from "express";
 import { ZodError } from "zod";
-import { AppError } from "@/utils/AppError";
+import { AppError } from "../utils/AppError";
 import { Prisma } from "../generated/prisma/client";
 
 export const errorHandler = (

@@ -1,6 +1,5 @@
 
 import prisma from "../../config/prisma";
-import { createTextContentType } from "./text.schema";
 
 class textRepository{
   

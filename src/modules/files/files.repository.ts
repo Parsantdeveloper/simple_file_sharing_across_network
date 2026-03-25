@@ -1,5 +1,5 @@
 // files.repository.ts
-import prisma from "@/config/prisma";
+import prisma from "../../config/prisma";
 import { FileContentType } from "./files.schema";
 
 class FilesRepository {

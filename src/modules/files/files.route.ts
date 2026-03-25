@@ -1,6 +1,6 @@
 
 import express from "express";
-import { upload } from "@/libs/files";
+import { upload } from "../../libs/files";
 import {deleteFile, getFilesByRoomId, uploadFile} from "./files.controller";
 
  const router = express.Router();
