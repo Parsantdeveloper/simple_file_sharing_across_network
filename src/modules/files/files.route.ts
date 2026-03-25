@@ -190,7 +190,6 @@ import {deleteFile, getFilesByRoomId, uploadFile} from "./files.controller";
  *         required: true
  *         schema:
  *           type: string
- *           format: uuid
  *     responses:
  *       200:
  *         description: File deleted successfully
