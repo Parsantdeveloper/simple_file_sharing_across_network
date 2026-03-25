@@ -4,7 +4,7 @@ import { FileContentType } from "./files.schema";
 import { destroy } from "../../libs/files";
 import redis from "../../libs/redis";
 import { AppError } from "../../utils/AppError";
-
+import { fileDeleteQueue } from "../../libs/queues/file.queue";
 class FilesService {
     private readonly MAX_FILES = 3;
     private readonly CACHE_TTL = 3600;
@@ -30,6 +30,21 @@ class FilesService {
         // Update cache
         await redis.incr(cacheKey);
         await redis.expire(cacheKey, this.CACHE_TTL);
+
+        await fileDeleteQueue.add("delete-file", {
+            fileId: file.id,
+            publicId: file.publicId,
+        },
+        {
+            delay:1000*60*60 ,  // 10 seconds delay before deletion
+            attempts: 3, // retry up to 3 times if it fails
+             backoff: {
+                type: "exponential",
+                delay: 1000, // initial delay of 1 second
+             },
+             jobId: `delete-file-${file.id}` // unique job ID to prevent duplicates
+        }
+    );
 
         return file;
     }
@@ -58,6 +73,12 @@ class FilesService {
             destroy(file.publicId).catch(err =>
                 console.error("Cloudinary deletion failed:", err)
             );
+        }
+
+        let job = await fileDeleteQueue.getJob(`delete-file-${fileId}`);
+        if (job) {
+            await job.remove();
+            console.log(`Removed scheduled deletion job for file ${fileId}`);
         }
 
         return file;

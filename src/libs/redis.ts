@@ -2,7 +2,7 @@ import Redis from "ioredis";
 import { env } from "../config/env";
 
 const redis = new Redis(env.UPSTASH_REDIS_URL, {
-  maxRetriesPerRequest: 2,
+  maxRetriesPerRequest: null,
   enableReadyCheck: true,
 });
 
