@@ -12,7 +12,7 @@ model Room {
   passwordHash   String?       // optional password protection
   encryptionKey  String?       // optional encryption key
   createdAt      DateTime      @default(now())
-  expiresAt      DateTime?
+  expiresAt      DateTime?     @default(now())
   textContent    TextContent?
   roomIPs        RoomIP[]
   fileContent    FileContent[]

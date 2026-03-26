@@ -1,15 +1,14 @@
 
 import { ApiResponse } from "../../utils/ApiResponce";
-import { Request,Response,NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 import roomService from "./room.service"
+import { asyncHandler } from "../../utils/AsyncHandler";
+import { deleteRoomSchema, onBoardingSchema, updatePasswordSchema } from "./room.schema"
+export const onBoardingController = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
 
-
-export const onBoardingController=async(req:Request,res:Response,next:NextFunction)=>{
-    try {
-        let {ipAddress}:{ipAddress:string}=req.body as {ipAddress:string};
-        let room=await roomService.onBoarding(ipAddress);
-        res.status(200).json(ApiResponse.success(room,{},"Room created successfully"));
-    } catch (error) {
-        next(error);
-    }
+    let { ipAddress } = onBoardingSchema.parse(req.body);
+    let room = await roomService.onBoarding(ipAddress);
+    res.status(200).json(ApiResponse.success(room, {}, "Room created successfully"));
 }
+)
+

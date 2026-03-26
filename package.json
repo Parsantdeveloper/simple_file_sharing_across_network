@@ -8,6 +8,7 @@
     "build": "npx prisma generate && tsc",
     "dev:worker": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/workers/file.workers.ts",
     "start": "node dist/server.js",
+    "start:worker": "node dist/workers/file.workers.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev"
   },
@@ -18,7 +19,9 @@
   "dependencies": {
     "@prisma/adapter-pg": "^7.2.0",
     "@prisma/client": "^7.5.0",
+    "@types/bcrypt": "^6.0.0",
     "@types/slug": "^5.0.9",
+    "bcrypt": "^6.0.0",
     "bullmq": "^5.71.1",
     "cloudinary": "^1.41.3",
     "cors": "^2.8.5",
