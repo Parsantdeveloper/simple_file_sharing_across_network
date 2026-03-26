@@ -3,7 +3,7 @@ import prisma from "../../config/prisma";
 
 class roomRepository {
 
-  async onBoarding(ipAddress: string) {
+  async onBoarding(ipAddress: string): Promise<any> {
 
     let existingRoomIp = await prisma.roomIP.findFirst({
       where: {
@@ -43,7 +43,10 @@ class roomRepository {
       return room;
 
     })
-    return room;
+    return {
+      ...room,
+      newRoom:true
+    };
   }
 
   async updatePassword(roomId: string, hashedPassword: string) {
