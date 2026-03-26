@@ -26,7 +26,15 @@ app.use(helmet());
 app.use(morgan("dev")); 
 app.use(express.json());
 
+app.get("/",(req,res)=>{
+    res.send("Welcome to the File Sharing API");
+})
+
+if(process.env.NODE_ENV==="development"){
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+}
+
+
 app.use("/api/room", roomRoute);
 app.use("/api/text-content", textRoute);
 app.use("/api/file", fileRoute);
