@@ -170,7 +170,7 @@ import {deleteFile, getFilesByRoomId, uploadFile} from "./files.controller";
  */
  
   router.post("/upload",upload.single("file"),uploadFile )
-
+  
 /**
  * @swagger
  * /api/file/{roomId}/{fileId}:

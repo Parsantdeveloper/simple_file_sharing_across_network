@@ -15,7 +15,9 @@ export const app = express();
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_BASE_URL, // Replace with your frontend's origin
+    origin: [process.env.FRONTEND_BASE_URL, "https://simple-file-and-text-sharing-websit.vercel.app/"].filter(
+      (origin): origin is string => Boolean(origin)
+    ), // Replace with your frontend's origin
     methods: ["GET", "POST", "PUT", "DELETE","PATCH"], // Specify allowed HTTP methods
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   })
