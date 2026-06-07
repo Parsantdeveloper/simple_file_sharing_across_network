@@ -17,7 +17,7 @@ app.use(
   cors({
     origin: [
       `${process.env.FRONTEND_BASE_URL}`,
-      "https://simple-file-and-text-sharing-websit.vercel.app/",
+      "https://simple-file-and-text-sharing-websit.vercel.app",
     ], // Replace with your frontend's origin
     methods: ["GET", "POST", "PUT", "DELETE","PATCH"], // Specify allowed HTTP methods
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
