@@ -3,7 +3,7 @@ import { ApiResponse } from "../../utils/ApiResponce";
 import { Request, Response, NextFunction } from "express";
 import roomService from "./room.service"
 import { asyncHandler } from "../../utils/AsyncHandler";
-import { deleteRoomSchema, onBoardingSchema, updatePasswordSchema } from "./room.schema"
+import { onBoardingSchema } from "./room.schema"
 export const onBoardingController = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
 
     let { ipAddress } = onBoardingSchema.parse(req.body);
